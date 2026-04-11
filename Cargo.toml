@@ -1,0 +1,30 @@
+[package]
+name = "egui-screensaver-fractal-clock"
+version = "0.1.2"
+edition = "2024"
+rust-version = "1.85"
+authors = ["Cecile Tonglet <cecile.tonglet@cecton.com>"]
+description = "Fractal clock screensaver for egui — recursively branching clock hands"
+license = "MIT OR Apache-2.0"
+readme = "README.md"
+repository = "https://github.com/cecton/egui-screensaver-fractal-clock"
+homepage = "https://cecton.github.io/egui-screensaver-fractal-clock"
+documentation = "https://docs.rs/egui-screensaver-fractal-clock"
+keywords = ["egui", "screensaver", "fractal", "clock", "animation"]
+categories = ["gui", "graphics", "wasm", "visualization"]
+
+[dependencies]
+egui = { version = "0.34", default-features = false }
+
+[dev-dependencies]
+xtask-wasm = { version = "0.6.2", features = ["run-example", "wasm-opt"] }
+
+[target.'cfg(target_arch = "wasm32")'.dev-dependencies]
+eframe = { version = "0.34", default-features = false, features = ["glow", "default_fonts", "web_screen_reader", "accesskit"] }
+wasm-bindgen = "0.2"
+wasm-bindgen-futures = "0.4"
+web-sys = { version = "0.3", features = ["HtmlCanvasElement"] }
+
+[workspace]
+members = ["."]
+resolver = "2"
